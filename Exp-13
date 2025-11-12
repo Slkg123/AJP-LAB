@@ -1,0 +1,50 @@
+Aim: Write a program which demonstrates the SQL tags
+====
+Source code:
+==========
+SQL commands:
+============
+    create table employee(id int, name varchar2(50),age int, address varchar2(100));
+    insert into employee values(1,'imrankhan',20,Chilakaluripet');
+    insert into employee values(2,'ayaankhan',18,Chilakaluripet');
+   select *from employee;
+   commit;
+Ecllips:
+======
+step1:    file->new->DynamicWebProject
+      projectName: Functiontag
+     Dynamic web module version:3.0
+     click on finish
+  step2: creating jsp file:
+  ============
+     Right click on webapp
+      create a jsp file
+     jsp name: imransql.jsp
+    click on finish
+step 3:
+======
+    Download jar file and JSTL file i.e;(jstl+odbc-8) from downloads and right click on WEB-INFO. right click on lib and paste it.
+step4:
+====
+       <% taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+      <% taglib uri="http://java.sun.com/jsp/jstl/Sql" prefix="sql"%>
+      <!DOCTYPE html>
+       <html>
+               <head>
+                           <title>Jsp Database</title>
+               </head>
+               <body>
+                         <sql:set DataSource var="database"
+                                   driver="Oracle.jdbc.driver.OracleDriver"
+                                   url="jdbc:oracle:thin:@localhost:1521:XE"
+                                   user="System"
+                                   password="tec"
+                        />
+                       <sql:query var="result" dataSource="${database}">
+                              select *from employee
+                       </sql:query>
+                       <c:forEach var="row" items="${result.rows}">
+                            ${row.id} ${row.name} ${row.age} ${row.address}<br>
+                       </c:forEach>
+               </body>
+        </html>
