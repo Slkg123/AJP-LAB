@@ -1,0 +1,47 @@
+a) Aim:  Write a program to connect jdbc and DB
+====
+sourcecode:
+========
+   package  com.jdbc;
+  import java.sql.*;
+  public class StudentJDBC{
+      public static void main(String[] args) throws exceptions{
+              Class.forName("Oracle.jdbc.driver.OracleDriver");
+              Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","tec");
+              Statement stm=con.createStatement();
+              stmt.executeUpdate("Create table Student(sno number primarykey, sname varchar2(30), age number, address varchar(30)");
+               stmt.executeUpdate("insert into Student values(1,'Imrankhan',20,'CPT'));
+               stmt.executeUpdate("insert into Student values(2,'Ayaannkhan',18,'CPT'));
+               stmt.executeUpdate("insert into Student values(3,'Manoj',20,'NRT'));
+               stmt.executeUpdate("insert into Student values(4,'Venkat,20,'CPT'));
+               stmt.executeUpdate("insert into Student values(5,'Srinivas',20,'NRT'));
+               ResultSet rs=stm.executeQuery("select* from Student");
+               while(rs.next()){
+                      System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3)+" "+rs.getString(4));
+               }
+              stm.close();
+              con.close();
+       }
+}
+b)package  com.jdbc;
+  import java.sql.*;
+  public class StudentDetails{
+      public static void main(String[] args) throws exceptions{
+              Class.forName("Oracle.jdbc.driver.OracleDriver");
+              Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","tec");
+              Statement smt=con.createStatement();
+              smt.executeUpdate("create table Students(rollno int primarykey, name varchar(30),address varchar(50))");
+             PreparedStatement insert= con.PrepareStatement("insert into Students values(?,?,?)");
+            insert.setInt(1,1);
+            insert.setString(2,"Imrankhan");
+            insert.setString(3,"CPT");
+            insert.setInt(1,2);
+            insert.setString(2,"Ayaankhan");
+            insert.setString(3,"NRT");
+              insert.setInt(1,3);
+            insert.setString(2,"Armaankhan");
+            insert.setString(3,"BNG");
+            smt.close();
+            con.close();
+      }
+}
