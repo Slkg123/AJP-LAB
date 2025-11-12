@@ -1,0 +1,91 @@
+Aim: Write a program for testing the include action for servlet collaboration
+=====
+Source code:
+==========
+creating project steps:
+================
+  file->new->Dynamic web project
+project name:sc
+Dynamic web module version:3.0
+click on next
+click on next
+select on Generate web.xml
+click on finish
+
+creating package steps:
+================
+Goto java Resources
+Right click on scr/main/java
+create a package
+package name:it
+
+Creating servlet:
+============
+Right click on it
+create a servlet
+servlet name(class name):itb
+right click on sc
+create a servlet
+servlet name(class name):itc
+click on finish.
+
+itb.java:
+======
+packge it;
+import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.webServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+public class itb extends HttpServlet{
+      private static final long serialversionUID=1L;
+      protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException
+      {
+               PrintWriter p= response.getWriter();
+               p.println("Welcome to TEC");
+               RequestDispatcher r= request.getRequestDispatcher("/Imran");
+               r.include(request,response);
+       }
+}
+
+
+itc.java:
+======
+package it;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.webServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
+public class itc extends HttpServlets{
+     private static final long serialversionUID=1L;
+       protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+             PrintWriter q=response.getWriter();
+             q.println("Welcome to IT Departmnt");
+      }
+}
+web.xml:
+=======
+<displat-name>sc</display-name>
+<servlet>
+        <servlet-name>itb</servlet-name>
+        <servlet-class>it.itb</servlet-class>
+</servlet> 
+<servlet-mapping>
+       <servlet-name>itb</servlet-name>
+       <url-pattern>/Ayaan</url-pattern>
+</servlet-mapping>
+<servlet>
+        <servlet-name>itc</servlet-name>
+        <servlet-class>it.itc</servlet-class>
+</servlet> 
+<servlet-mapping>
+       <servlet-name>itc</servlet-name>
+       <url-pattern>/Imran</url-pattern>
+</servlet-mapping>
+</webapp>
