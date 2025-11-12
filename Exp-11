@@ -1,0 +1,37 @@
+aim: Write a program ehich demonstrates the  Format tag of JSTL
+====
+creating steps:
+==========
+    file->new->DynamicWebProject
+      projectName: Formattag
+     Dynamic web module version:3.0
+     click on finish
+  creating jsp file:
+  ============
+     Right click on webapp
+      create a jsp file
+     jsp name: iman1.jsp
+    click on finish
+step 3:
+======
+    copy jar file from downloads
+                              (or)    
+  Download jarfile from github and right click on WEB_INF
+  Right click on lib and paste it.
+step 4:
+=====
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/Core" prefix="c"%>
+<html>
+     <head>
+             <title>Format Tags</title>
+     </head>
+     <body>
+              <c:Set var="price" value="12345" />
+              <fmt:formatNumber value= "${price} "/><br>
+              <c:Set var="CurrentDate" value="<%=new java.util.Date() %>" /><br>
+              <fmt:formatNumber value= "${CurrentDate} "/>
+              <c:Set var="Currenttime" value="<%=new java.util.Date()%>" /><br>
+              <fmt:formatNumber value= "${Currenttime} "pattern="hh:mm:ss"/><br>
+     </body>
+</html>
