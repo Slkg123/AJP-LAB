@@ -1,0 +1,36 @@
+Aim: Write a program which displays the simple jsp file.
+====
+Creating Project Steps:
+================
+      file->new->DynamicWebProject
+      projectName: itjsp
+     Dynamic web module version:3.0
+     click on finish
+  creating jsp file:
+  ============
+     Right click on webapp
+      create a jsp file
+     jsp name: Imran
+    clock on finish
+  Step 3:
+======
+    <%@page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+   <html>
+        <head>
+                <meta charset="UTF-8">
+                <title>Simple Jsp</title>
+        </head>
+        <body>
+                <%=10+20%>
+                <p><%=new java.util.Date()%></p>
+                <p><%="hello jsp".toUpperCase()%></p>
+                <p><%="IMRAN".length()%></p>
+               <p><%=(int)(Math.random*100)%></p>
+               <p><%=7*8%></p>
+              <p><%=(15>25)?15:25%></p>
+             <p><%="JAVA SERVLETS".toLowerCase()%></p>
+               <p><%="Jsp Example".substring(0,3)%></p>
+               <p><%= 9*9%></p>
+        </body>
+   </html>
