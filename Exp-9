@@ -1,0 +1,46 @@
+aim: Write a program to perform database access through jsp
+====
+creating steps:
+==========
+    file->new->DynamicWebProject
+      projectName: jspdatabase
+     Dynamic web module version:3.0
+     click on finish
+  creating jsp file:
+  ============
+     Right click on webapp
+      create a jsp file
+     jsp name: jdbcdata
+    click on finish
+SQLCommands:
+============
+connect system/tec;
+create table Jsp(id int,name varchar2(30), email varchar(20));
+insert into Jsp values(1,'Imran',imran@gmail.com');
+insert into Jsp values(2,'ayaan',ayaan@gmail.com');
+insert into Jsp values(3,'Rafi',rafi@gmail.com');
+insert into Jsp values(4,'armaan',armaan@gmail.com');
+insert into jsp values(5,'arhaan',arhaan@gmail.com');
+select* from jsp;
+commit;
+step3:
+=====
+<%@ page import= "java.sql.*"%>
+ <html>
+    <head>
+           <title>JDBC Using JSP</title>
+    </head>
+    <body>
+             <%
+                       Class.forName("Oracle.jdbc.driver.OracleDriver");
+              Connection con= DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","tec");
+              Statement stm=con.createStatement();
+             ResultSet rs=stm.executeQuery("select* from Jsp");
+               while(rs.next()){
+                      System.out.println(rs.getInt(1)+" "+rs.getString(2)+" "rs.getString(3)+"<br>");
+               }
+              stm.close();
+              con.close();
+             %>
+     </body>
+</html>
