@@ -1,0 +1,52 @@
+Aim: Write down the program for testing  the servlet and study  devlopment descriptor.
+====
+source code:
+==========
+steps:
+=====
+  File
+  new
+  Dynamic webproject
+  projectname: tecwebproject
+  TargetRuntime:ApacheTomcat v9.0
+  Dynamioc webmodule_Version:3.0
+  click on next
+click on next
+select the checkbox on Generate web.xml deployment descriptor
+click on finish
+right click on src/main/java
+create a package
+packagename:it
+right click on package
+create a servlet
+servlet name:itb
+
+itb.java:
+======
+package it;
+import java.io.PrintWriter;
+import java.io.IOException;
+import javax.Servlet.ServletException;
+import javax.Servlet.annotation.webServlet;
+import javax.Servlet.http.HttpServlet;
+import javax.Servlet.http.HttpServletRequest;
+import javax.Servlet.http.HttpServletResponse;
+public class itb extends HttpServlet{
+     private static final long serialVersionUID=1L;
+     protected void daGet(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException{
+          PrintWriter writer=response.getWriter();
+          writer.println("Welcome to IT");
+     }
+}
+web.xml:
+=======
+<display-name>tecwebproject</display-name>
+<servlet>
+  <servlet-name>itb</servlet-name>
+  <servlet-class>it.itb</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>itb</servlet-name>
+  <urlpattern>/Imrankhan</urlpattern>
+</servlet-mapping>
+</webapp>
