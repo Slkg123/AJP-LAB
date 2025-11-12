@@ -1,0 +1,32 @@
+Aim:  Design a JDBC application which will demonstrate update resultset functionality
+=====
+SQL Commands:
+============
+create table Student1292(rollno int,name varchar(30), age int);
+insert into Student1292 values(1,'Imrankhan',20);
+insert into Student1292 values(2,'Ayaankhan',18);
+insert into Student1292 values(3,'Rafi',20);
+insert into Student1292 values(4,'Parvez',20);
+insert into Student1292 values(5,'Manoj',20);
+select *from Student1292;
+commit;
+
+Ecllips:
+======
+Package imran;
+import java.sql.*;
+public class Student1{
+       public static void main(String[]  args)throws Exception{
+           Class.forName(""oracle.jdbc.driver.OracleDriver");
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "tec");
+        Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        ResultSet rs= stmt.executeQuery("select *from Student1292");
+        rs.first();
+        int newAge= rs.getInt("age")+1;
+        rs.updateInt("age", newAge);
+        rs.UpdateRow();
+        System.out.println(newAge);
+        rs.close();
+        stmt.close();
+  }
+}
