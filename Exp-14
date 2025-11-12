@@ -1,0 +1,81 @@
+Aim: Study and Implement MVC using Spring Framework
+====
+Source code:
+=========
+step1:   click on Spring tool.
+===== click on launch.
+
+step2:
+====
+      click on file->New->Spring Starter Project
+      Name: MVC
+      type:Marven
+      package: Jar
+      language: Java
+      Version:17
+      Group: it
+      package :it
+     click on next.
+     search web on available->click on SpringWeb.Finish.
+Step3:
+====
+   scr/main/java->it(package)->MVCApplication->click on finish.
+   Goto it(package)->new->class->Student->Click on finish.
+  Goto it(package)->new->class->StudentController->Click on finish.
+ Goto src/main/resources->application.properties.
+Step 4:
+=====
+
+MVC Application:
+===========
+ package it;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoConfigure.SpringBootApplication;
+@springBootApplication
+public static void main(String[] args){
+     public static void main(String[]  args){
+           SpringApplication.run(DemoApplication.class,args);
+    }
+}
+save the file.
+
+Student.java:
+=========
+   package it;
+   public class Student{
+            import org.springframework.boot.SpringApplication;
+            public String name;
+            public int age;
+           public Student(String n,int a){
+                 name = n;
+                 age = a;
+           }
+}
+Save the file.
+
+StudentController.java:
+=================
+  package it;
+  import org.springframework.web.bing.annotation.GetMapping;
+import org.springframework.web.bing.annotation.RestController;
+ @RestController
+  public class StudentController{
+         @GetMapping("/ayaan")
+          public Student a(){
+                  Student s= new Student("imran",20);
+                  return s;  
+           }
+   }
+  Save the file.
+
+Application Properties:
+=================
+   spring.application.name=MVC
+   server.port=8888
+   Save the file.
+
+Step 5:
+=====
+   Right click on MVC->Click on Run as-> click on "SpringBootApp".
+//After running goto chrome and search url "localhost:8888/ayyan.
+
