@@ -1,0 +1,40 @@
+Aim: Write a program which input the two numbers in an html file andthen display the addition in jsp file.
+====
+Creating Project Steps:
+================
+      file->new->DynamicWebProject
+      projectName: itjsp
+     Dynamic web module version:3.0
+     click on finish
+  creating jsp file:
+  ============
+     Right click on webapp
+      create a jsp file
+     jsp name: Imran
+    click on finish
+step3:
+======
+   <%@page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+   <html>
+        <head>
+                <meta charset="UTF-8">
+                <title>Addition of 2 numbers by JSP</title>
+        </head>
+        <body>
+              <form action="imran.jsp" method="get">
+              num1<input type="number" name="num1"><br></br>
+             num2<input type="number" name="num2"><br></br>
+            <input type="Submit" value="add">
+             </form>
+             <% 
+                   String num1str= request.getParameter("num1");
+                  String num2str= request.getParameter("num2");
+                   if(num1str != null && num2str != null){
+                         int num1= Integer.parseInt(num1str);
+                         int num2= Integer.parseInt(num2str);
+                         int sum= num1+num2;
+                         out.println(sum); 
+             %>
+        </body>
+</html>
