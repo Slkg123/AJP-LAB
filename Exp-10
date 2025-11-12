@@ -1,0 +1,48 @@
+Aim: Write a program which demonstarates the core tags of JSTL
+====
+creating steps:
+==========
+    file->new->DynamicWebProject
+      projectName: jstl
+     Dynamic web module version:3.0
+     click on finish
+  creating jsp file:
+  ============
+     Right click on webapp
+      create a jsp file
+     jsp name: jstl.jsp
+    click on finish
+step 3:
+=====
+   Download jarfile from github and right click on WEB_INF
+  Right click on lib and paste it.
+step 4:
+=====
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<html>
+     <head>
+             <title>JSTL Core Tags Demo</title>
+     </head>
+     <body>
+              <c:Set var="username" value="Imran" />
+              <p><c:out value="${username}" /></p> 
+              <c:if test="${username == 'Imran'}" >
+               <p>Welcome back,Imran!</p>
+               </c:if>
+              <c:choose>
+                       <c:when test="${username == 'Imran'}" >
+                                  <p>You atre the admin.......</p>
+                       </c:when>
+                      <c:when test="${username == 'Ayaan'}" >
+                                  <p>You atre the Ayaan.</p>
+                       </c:when>
+                       <c:otherwise>
+                                   <p>You are a guest user.</p>
+                        </c:otherwise>
+              </c:choose> 
+              <c:Set var="fruits" value="${['Apple','Mango','Orange']}" />
+                      <c:forEavh var="fruit" items="${fruits}">
+                                  <p>${fruits}</p>
+                       </c:forEach>
+   </body>
+</html>
